@@ -1,14 +1,24 @@
 const input = document.querySelector("#validation-input");
-input.style.border = "2px solid #bdbdbd";
 input.addEventListener('blur', checkInput);
 function checkInput(event) {
-    const name = event.currentTarget.value
-    if (name.length == input.dataset.length) {
-        input.style.borderColor = "#4caf50";
-    }
-    else {
-        input.style.borderColor = "#f44336";
+    const inputValue = event.currentTarget.value;
+    const expectedLength = parseInt(input.dataset.length);
+
+    if (inputValue.length === expectedLength) {
+        input.classList.remove("invalid");
+        input.classList.add("valid");
+    } else {
+        input.classList.remove("valid");
+        input.classList.add("invalid");
     }
 }
 
 console.log(input);
+
+
+
+
+
+
+
+
